@@ -1,0 +1,28 @@
+name: Full Stack CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Backend Tests
+      run: |
+        cd backend
+        npm install
+        npm test
+
+    - name: Frontend Tests
+      run: |
+        cd frontend
+        npm install
+        npm test -- --watchAll=false
