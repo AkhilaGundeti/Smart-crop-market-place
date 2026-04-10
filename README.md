@@ -56,41 +56,33 @@ Smart-crop-market-place/
 git clone https://github.com/AkhilaGundeti/Smart-crop-market-place.git
 cd Smart-crop-market-place
 ```
-```text
-2. Environment Variables
+###2. Environment Variables
+
 Create a .env file inside backend and add:
-```
+
+```text
 MONGO_URI=your_mongodb_connection_string
-
-```text
-3. Run with Docker
 ```
-docker-compose up --build
-
+###3. Run with Docker
 ```text
+docker-compose up --build
+```
 🌐 Access Application
 Frontend: http://localhost:4173
 Backend: http://localhost:5000
+
 🔄 CI/CD Pipeline
 Automated testing using GitHub Actions
 Backend tests executed on every push
 Frontend build validation
-```
 
-
-
-
-```text
 💡 Future Enhancements
 Payment Integration
 Real-time notifications
 Mobile app version
-👩‍💻 Author
 
+👩‍💻 Author
 Akhila Gundeti
 
 ⭐ Acknowledgements
-
 This project was built as part of learning full-stack development, DevOps, and deployment practices.
-```
-
