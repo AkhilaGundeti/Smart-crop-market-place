@@ -32,6 +32,18 @@ A full-stack web application that connects farmers and buyers, enabling seamless
 ### DevOps
 - Docker 🐳  
 - GitHub Actions (CI/CD)  
+- Vercel (Frontend Hosting)  
+- Render (Backend Deployment)  
+
+---
+
+## 🌐 Live Application
+
+- **Frontend (Vercel):**  
+  https://smart-crop-market-place-akhilas-projects-70c8f50a.vercel.app/
+
+- **Backend (Render):**  
+  https://smart-crop-market-place.onrender.com
 
 ---
 
@@ -46,7 +58,6 @@ Smart-crop-market-place/
 └── .github/workflows/
 ```
 
----
 
 ## ⚙️ Setup Instructions
 
@@ -58,10 +69,14 @@ cd Smart-crop-market-place
 ```
 ###2. Environment Variables
 
-Create a .env file inside backend and add:
+Backend (backend/.env)
 
 ```text
 MONGO_URI=your_mongodb_connection_string
+```
+Frontend (frontend/.env)
+```text
+VITE_API_URL=https://smart-crop-market-place.onrender.com
 ```
 ###3. Run with Docker
 ```text
@@ -74,6 +89,15 @@ docker-compose up --build
 - Frontend: http://localhost:4173  
 - Backend: http://localhost:5000  
 
+---
+
+##🚀 Deployment
+
+This project follows a modern production architecture:
+
+-Frontend deployed on Vercel
+-Backend deployed on Render (Docker-based)
+-Database hosted on MongoDB Atlas
 ---
 
 ## 🔄 CI/CD Pipeline
@@ -100,4 +124,4 @@ docker-compose up --build
 
 ## ⭐ Acknowledgements
 
-This project was built as part of learning full-stack development, DevOps, and deployment practices.
+This project was built as part of learning full-stack development, DevOps, Docker, and cloud deployment practices.
