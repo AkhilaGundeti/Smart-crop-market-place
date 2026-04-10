@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { Search, MapPin, Tag } from 'lucide-react';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Marketplace = () => {
     const [crops, setCrops] = useState([]);
@@ -20,7 +21,7 @@ const Marketplace = () => {
     const fetchCrops = async () => {
         try {
             setLoading(true);
-            let url = 'http://localhost:5000/api/crops?';
+            let url = `${API_URL}/api/crops?`;
             if (searchTerm) url += `keyword=${searchTerm}&`;
             if (categoryFilter) url += `category=${categoryFilter}&`;
             if (maxPriceFilter) url += `maxPrice=${maxPriceFilter}&`;
@@ -42,7 +43,7 @@ const Marketplace = () => {
     const fetchFarmerRating = async (farmerId) => {
         if (farmerRatings[farmerId]) return; // already fetched
         try {
-            const res = await axios.get(`http://localhost:5000/api/reviews/farmer/${farmerId}`);
+            const res = await axios.get(`${API_URL}/api/reviews/farmer/${farmerId}`);
             setFarmerRatings(prev => ({
                 ...prev,
                 [farmerId]: {
@@ -66,7 +67,7 @@ const Marketplace = () => {
             const qty = prompt("Enter quantity (in crop units):", "1");
             if (!qty) return;
 
-            await axios.post('http://localhost:5000/api/orders', { cropId, quantity: Number(qty), deliveryAddress: addr });
+            await axios.post(`${API_URL}/api/orders`, { cropId, quantity: Number(qty), deliveryAddress: addr });
             alert('Order placed successfully!');
             fetchCrops(); // Refresh stock
         } catch (err) {

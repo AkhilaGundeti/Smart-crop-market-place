@@ -3,6 +3,8 @@ import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { ShoppingBag, Truck, Star } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const BuyerDashboard = () => {
     const { user } = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
@@ -15,7 +17,7 @@ const BuyerDashboard = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/orders/myorders');
+            const res = await axios.get(`${API_URL}/api/orders/myorders`);
             setOrders(res.data.data);
         } catch (err) {
             console.error('Failed to fetch orders', err);
@@ -27,7 +29,7 @@ const BuyerDashboard = () => {
         const rating = e.target.rating.value;
         const comment = e.target.comment.value;
         try {
-            await axios.post('http://localhost:5000/api/reviews', { 
+            await axios.post(`${API_URL}/api/reviews`, { 
                 farmerId: reviewingFarmer, 
                 rating: Number(rating), 
                 comment 

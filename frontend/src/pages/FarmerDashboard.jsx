@@ -6,6 +6,8 @@ import {
     BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const FarmerDashboard = () => {
     const { user } = useContext(AuthContext);
     const [stats, setStats] = useState(null);
@@ -33,9 +35,9 @@ const FarmerDashboard = () => {
     const fetchDashboardData = async () => {
         try {
             const [statsRes, cropsRes, ordersRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/analytics/farmer'),
-                axios.get(`http://localhost:5000/api/crops?farmerId=${user._id}`), // Note: basic filter
-                axios.get('http://localhost:5000/api/orders/farmer')
+                axios.get(`${API_URL}/api/analytics/farmer`),
+                axios.get(`${API_URL}/api/crops?farmerId=${user._id}`), // Note: basic filter
+                axios.get(`${API_URL}/api/orders/farmer`)
             ]);
             setStats(statsRes.data.data);
 
@@ -62,7 +64,7 @@ const FarmerDashboard = () => {
         };
 
         try {
-            await axios.post('http://localhost:5000/api/crops', cropData);
+            await axios.post(`${API_URL}/api/crops`, cropData);
             alert('Crop added successfully');
             form.reset();
             fetchDashboardData();
@@ -74,7 +76,7 @@ const FarmerDashboard = () => {
     const handleUpdateCrop = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/crops/${editingCrop._id}`, editingCrop);
+            await axios.put(`${API_URL}/api/crops/${editingCrop._id}`, editingCrop);
             setEditingCrop(null);
             fetchDashboardData();
         } catch (err) {
@@ -85,7 +87,7 @@ const FarmerDashboard = () => {
     const handleDeleteCrop = async (cropId) => {
         if (!window.confirm('Are you sure you want to delete this crop?')) return;
         try {
-            await axios.delete(`http://localhost:5000/api/crops/${cropId}`);
+            await axios.delete(`${API_URL}/api/crops/${cropId}`);
             fetchDashboardData();
         } catch (err) {
             alert(err.response?.data?.error || 'Failed to delete crop');
@@ -94,7 +96,7 @@ const FarmerDashboard = () => {
 
     const getPriceSuggestion = async (category) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/crops/suggest-price', { category: category });
+            const res = await axios.post(`${API_URL}/api/crops/suggest-price`, { category: category });
             setPriceSuggestion(res.data.data);
         } catch (err) {
             console.error(err);
@@ -103,7 +105,7 @@ const FarmerDashboard = () => {
 
     const handleUpdateOrderStatus = async (orderId, newStatus) => {
         try {
-            await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, { status: newStatus });
+            await axios.put(`${API_URL}/api/orders/${orderId}/status`, { status: newStatus });
             fetchDashboardData();
         } catch (err) {
             alert('Failed to update status');
@@ -113,7 +115,7 @@ const FarmerDashboard = () => {
     const handleUpdateProfile = async (e) => {
         e.preventDefault();
         try {
-            await axios.put('http://localhost:5000/api/auth/profile', profileFormData);
+            await axios.put(`${API_URL}/api/auth/profile`, profileFormData);
             alert('Profile updated successfully! Refresh to see changes across app.');
         } catch (err) {
             alert(err.response?.data?.error || 'Failed to update profile');
