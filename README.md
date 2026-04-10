@@ -41,7 +41,7 @@ A full-stack web application that connects farmers and buyers, enabling seamless
 ## 🌐 Live Application
 
 - **Frontend (Vercel):**  
-  https://smart-crop-market-place-akhilas-projects-70c8f50a.vercel.app/
+  https://smart-crop-market-place.vercel.app
 
 - **Backend (Render):**  
   https://smart-crop-market-place.onrender.com
