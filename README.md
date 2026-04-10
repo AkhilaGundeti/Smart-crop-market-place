@@ -67,22 +67,37 @@ MONGO_URI=your_mongodb_connection_string
 ```text
 docker-compose up --build
 ```
-🌐 Access Application
--Frontend: http://localhost:4173
--Backend: http://localhost:5000
+---
 
-🔄 CI/CD Pipeline
--Automated testing using GitHub Actions
--Backend tests executed on every push
--Frontend build validation
+## 🌐 Access Application
 
-💡 Future Enhancements
--Payment Integration
--Real-time notifications
--Mobile app version
+- Frontend: http://localhost:4173  
+- Backend: http://localhost:5000  
 
-👩‍💻 Author
--Akhila Gundeti
+---
 
-⭐ Acknowledgements
--This project was built as part of learning full-stack development, DevOps, and deployment practices.
+## 🔄 CI/CD Pipeline
+
+- Automated testing using GitHub Actions  
+- Backend tests executed on every push  
+- Frontend build validation  
+
+---
+
+## 💡 Future Enhancements
+
+- Payment Integration  
+- Real-time notifications  
+- Mobile app version  
+
+---
+
+## 👩‍💻 Author
+
+**Akhila Gundeti**
+
+---
+
+## ⭐ Acknowledgements
+
+This project was built as part of learning full-stack development, DevOps, and deployment practices.
