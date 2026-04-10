@@ -26,8 +26,9 @@ A full-stack web application that connects farmers and buyers, enabling seamless
 ### Backend
 - Node.js  
 - Express.js  
-- MongoDB Atlas  
-- Mongoose  
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication (jsonwebtoken) 🔐
 
 ### DevOps
 - Docker 🐳  
@@ -84,20 +85,21 @@ docker-compose up --build
 ```
 ---
 
-## 🌐 Access Application
+## 🌐 Local Access
 
 - Frontend: http://localhost:4173  
 - Backend: http://localhost:5000  
 
 ---
 
-##🚀 Deployment
+## 🚀 Deployment Architecture
 
 This project follows a modern production architecture:
 
--Frontend deployed on Vercel
--Backend deployed on Render (Docker-based)
--Database hosted on MongoDB Atlas
+- Frontend deployed on Vercel
+- Backend deployed on Render (Docker-based)
+- Database hosted on MongoDB Atlas
+
 ---
 
 ## 🔄 CI/CD Pipeline
@@ -125,3 +127,59 @@ This project follows a modern production architecture:
 ## ⭐ Acknowledgements
 
 This project was built as part of learning full-stack development, DevOps, Docker, and cloud deployment practices.
+
+
+
+## 🧑‍💻 Run Project in VS Code (Without Docker)
+
+Follow these steps to run the project manually using Visual Studio Code.
+
+### 1. Open Project
+
+Open the project folder in VS Code.
+
+---
+
+### 2. Setup Backend
+
+```bash
+cd backend
+npm install
+```
+### Create a .env file inside backend:
+```text
+MONGO_URI=your_mongodb_connection_string
+```
+### Run backend:
+```bash
+npm run dev
+```
+- Backend will run at:
+http://localhost:5000
+### 2. Setup Frontend
+
+```bash
+cd frontend
+npm install
+```
+### Create a .env file inside frontend:
+```text
+VITE_API_URL=http://localhost:5000
+```
+### Run backend:
+```bash
+npm run dev
+```
+- Frontend will run at:
+http://localhost:5173
+### 4. Access Application
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5000
+### 💡 Notes
+- Ensure MongoDB Atlas is properly connected
+- Start backend before frontend
+- Use local API URL (http://localhost:5000) for development
+- Use deployed API URL for production
+
+
+
