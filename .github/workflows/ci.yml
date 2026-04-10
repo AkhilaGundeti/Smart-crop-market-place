@@ -18,8 +18,9 @@ jobs:
     - name: Backend Tests
       working-directory: backend
       run: |
+        rm -rf node_modules package-lock.json
         npm install
-        npm test
+        npx jest
 
     - name: Frontend Tests
       working-directory: frontend
