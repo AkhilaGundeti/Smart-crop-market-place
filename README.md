@@ -156,7 +156,7 @@ npm run dev
 ```
 - Backend will run at:
 http://localhost:5000
-### 2. Setup Frontend
+### 3. Setup Frontend
 
 ```bash
 cd frontend
@@ -172,9 +172,11 @@ npm run dev
 ```
 - Frontend will run at:
 http://localhost:5173
+
 ### 4. Access Application
 - Frontend: http://localhost:5173
 - Backend: http://localhost:5000
+
 ### 💡 Notes
 - Ensure MongoDB Atlas is properly connected
 - Start backend before frontend
