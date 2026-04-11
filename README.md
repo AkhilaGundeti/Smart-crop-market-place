@@ -47,6 +47,26 @@ A full-stack web application that connects farmers and buyers, enabling seamless
   https://smart-crop-market-place.onrender.com
 
 ---
+## ⚠️ Note on Backend Availability
+
+The backend of this application is deployed on the **Render free tier**.
+
+- The service may **enter sleep mode after periods of inactivity**  
+- The first request after inactivity may take **30–60 seconds** to respond  
+- During this time, API requests (login, register, data fetching) may temporarily fail  
+
+### 💡 Solution
+
+If the app appears unresponsive:
+
+1. Open the backend URL manually:  
+   https://smart-crop-market-place.onrender.com  
+
+2. Wait a few seconds for the server to wake up  
+
+3. Refresh the frontend application  
+
+> In a production environment, this can be resolved by using always-on hosting or upgrading the service plan.
 
 ## 📂 Project Structure
 
